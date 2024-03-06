@@ -6,7 +6,10 @@ const LogoutButton = () => {
 
   return (
     <div className="mt-auto">
-      <div onClick={logout} className="text-white cursor-pointer">
+      <div
+        onClick={logout}
+        className="text-black cursor-pointer hover:opacity-80"
+      >
         {isLoadingLogout ? (
           <span className="loading loading-spinner"></span>
         ) : (

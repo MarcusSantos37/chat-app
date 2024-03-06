@@ -1,6 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { FaSearch } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { useConversations } from "../../../hooks/useConversations";
 import { searchSchema } from "../../../schemas/conversations";
@@ -32,16 +31,17 @@ const SearchInput = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex items-center gap-2">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex items-center gap-2 w-full"
+    >
       <input
         {...register("search")}
         type="text"
+        onSubmit={handleSubmit(onSubmit)}
         placeholder="Search..."
-        className="input input-bordered rounded-full"
+        className="input bg-[#F3F3F3] transition-all w-full rounded-[12px]"
       />
-      <button type="submit" className="btn btn-circle bg-sky-500 text-white">
-        <FaSearch />
-      </button>
     </form>
   );
 };

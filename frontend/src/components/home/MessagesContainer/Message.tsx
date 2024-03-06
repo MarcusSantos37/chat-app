@@ -17,7 +17,9 @@ const Message = ({ message }: MessageProps) => {
   const profilePic = fromMe
     ? authUser?.profilePic
     : selectedConversation?.profilePic;
-  const bubbleBgColor = fromMe ? "bg-blue-500" : "";
+  const bubbleColors = fromMe
+    ? "bg-[#615EF0] text-white"
+    : "bg-[#F1F1F1] text-black";
   const shakeClass = message.shouldShake ? "shake" : "";
 
   return (
@@ -27,10 +29,10 @@ const Message = ({ message }: MessageProps) => {
           <img src={profilePic} alt="user avatar" />
         </div>
       </div>
-      <div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass}`}>
+      <div className={`chat-bubble pt-3 text-sm ${bubbleColors} ${shakeClass}`}>
         {message.message}
       </div>
-      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
+      <div className="chat-footer mt-0.5 text-xs flex gap-1 items-center">
         {dayjs(message.createdAt).format("HH:mm")}
       </div>
     </div>

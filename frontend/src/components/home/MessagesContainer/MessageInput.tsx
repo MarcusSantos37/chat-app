@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { BsSend } from "react-icons/bs";
+import { BsSendFill } from "react-icons/bs";
 import { useConversations } from "../../../hooks/useConversations";
 import { messageSchema } from "../../../schemas/conversations";
 import { Message } from "../../../types/conversations";
@@ -25,14 +25,14 @@ const MessageInput = () => {
         <input
           {...register("message")}
           type="text"
-          className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 text-white"
-          placeholder="Send a message"
+          className="border-2 text-black text-sm focus-visible:outline-none transition-all focus:border-[#615EF0] rounded-[12px] block w-full py-3.5 px-5 bg-white border-[#E2E8F0]"
+          placeholder="Type a message"
         />
         <button
           type="submit"
-          className="absolute inset-y-0 end-0 flex items-center pe-3"
+          className="absolute inset-y-0 end-0 text-[#615EF0] flex items-center pe-5"
         >
-          <BsSend />
+          <BsSendFill />
         </button>
       </div>
     </form>

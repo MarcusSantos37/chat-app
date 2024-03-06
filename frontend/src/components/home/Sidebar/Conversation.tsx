@@ -7,7 +7,7 @@ interface ConversationProps {
   isLast: boolean;
 }
 
-const Conversation = ({ conversation, isLast }: ConversationProps) => {
+const Conversation = ({ conversation }: ConversationProps) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   const isSelected = selectedConversation?._id === conversation._id;
@@ -19,21 +19,19 @@ const Conversation = ({ conversation, isLast }: ConversationProps) => {
     <>
       <div
         className={`${
-          isSelected ? "bg-sky-500" : ""
-        } flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer`}
+          isSelected ? "bg-[#615EF0] bg-opacity-[6%]" : ""
+        } flex gap-2 items-center first:mt-3 mb-3 last:mb-0 hover:bg-[#615EF0] hover:bg-opacity-[6%] rounded-[12px] p-2 cursor-pointer`}
         onClick={() => setSelectedConversation(conversation)}
       >
         <div className={`avatar ${isOnline ? "online" : ""}`}>
-          <div className="w-12 rounded-full">
+          <div className="w-12">
             <img src={conversation.profilePic} alt="user avatar" />
           </div>
         </div>
         <div className="flex flex-col flex-1">
-          <p className="font-semibold text-gray-200">{conversation.fullName}</p>
+          <p className="font-semibold text-black">{conversation.fullName}</p>
         </div>
       </div>
-
-      {!isLast && <div className="divider my-0 py-0 h-1" />}
     </>
   );
 };
