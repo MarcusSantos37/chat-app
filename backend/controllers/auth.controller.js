@@ -7,7 +7,7 @@ export const signup = async (req, res) => {
     const { fullName, username, password, confirmPassword, gender } = req.body;
 
     if (password !== confirmPassword) {
-      return res.status(400).json({
+      return res.status(200).json({
         error: "Passwords don't match",
       });
     }
@@ -15,7 +15,7 @@ export const signup = async (req, res) => {
     const user = await User.findOne({ username });
 
     if (user) {
-      return res.status(400).json({
+      return res.status(200).json({
         error: "Username already exists",
       });
     }
@@ -69,7 +69,7 @@ export const login = async (req, res) => {
     );
 
     if (!user || !isPasswordCorrect) {
-      return res.status(400).json({ error: "Invalid username or password" });
+      return res.status(200).json({ error: "Invalid username or password" });
     }
 
     generateTokenAndSetCookie(user._id, res);
