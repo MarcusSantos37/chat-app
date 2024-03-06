@@ -16,6 +16,7 @@ export type MessageData = {
   createdAt: string;
   message: string;
   receiverId: string;
+  shouldShake?: boolean;
   senderId: string;
   updatedAt: string;
   _id: string;

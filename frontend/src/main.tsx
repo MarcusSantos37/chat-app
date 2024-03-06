@@ -8,14 +8,17 @@ import "./index.css";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ConversationsContextProvider } from "./contexts/ConversationsContext.tsx";
+import { SocketContextProvider } from "./contexts/SocketContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
-        <ConversationsContextProvider>
-          <App />
-        </ConversationsContextProvider>
+        <SocketContextProvider>
+          <ConversationsContextProvider>
+            <App />
+          </ConversationsContextProvider>
+        </SocketContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
     <ToastContainer />
