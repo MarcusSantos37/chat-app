@@ -40,7 +40,7 @@ export const SocketContextProvider = ({
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:5000", {
+      const socket = io(process.env.FRONTEND_URL ?? "", {
         query: {
           userId: authUser._id,
         },
