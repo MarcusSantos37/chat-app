@@ -23,15 +23,15 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col sm:min-w-[450px] min-w-[360px] items-center justify-center mx-auto">
-      <div className="w-full p-6 rounded-lg bg-white ">
+    <div className="sm:min-w-[450px] min-w-[360px] m-auto">
+      <div className="flex flex-col p-6 rounded-lg items-center justify-center">
         <h1 className="text-3xl font-semibold text-center text-[#121212]">
           Login <span className="text-[#615EF0]">ChatApp</span>
         </h1>
         <p className="text-[#3D3D3D] text-center text-sm my-5">
           Enter your username and password to access the chat
         </p>
-        <form onSubmit={handleSubmit(onSubmit)} className="my-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="my-5 w-full">
           <CustomInput
             register={register}
             type="text"

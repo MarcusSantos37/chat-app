@@ -9,7 +9,7 @@ function App() {
   const { authUser } = useAuth();
 
   return (
-    <div className="h-screen flex bg-white items-center justify-center overflow-auto">
+    <div className="h-screen flex bg-white overflow-auto">
       <Routes>
         <Route
           path="/"
