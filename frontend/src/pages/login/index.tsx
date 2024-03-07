@@ -23,11 +23,14 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
-      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
-        <h1 className="text-3xl font-semibold text-center text-gray-300">
-          Login <span className="text-blue-600">ChatApp</span>
+    <div className="flex flex-col sm:min-w-[450px] min-w-[360px] items-center justify-center mx-auto">
+      <div className="w-full p-6 rounded-lg bg-white ">
+        <h1 className="text-3xl font-semibold text-center text-[#121212]">
+          Login <span className="text-[#615EF0]">ChatApp</span>
         </h1>
+        <p className="text-[#3D3D3D] text-center text-sm my-5">
+          Enter your username and password to access the chat
+        </p>
         <form onSubmit={handleSubmit(onSubmit)} className="my-5">
           <CustomInput
             register={register}
@@ -47,16 +50,16 @@ const Login = () => {
           />
           <Link
             to="/signup"
-            className="text-sm hover:underline hover:text-blue-600 mx-auto my-5 inline-block w-full text-center"
+            className="text-sm hover:underline hover:text-[#615EF0] transition-all text-[#121212] mx-auto my-5 inline-block w-full text-center"
           >
             Don't have an account?
           </Link>
           <div>
-            <button className="btn btn-block btn-sm ">
+            <button className="btn btn-block text-white bg-[#615EF0] hover:bg-[#615EF0] hover:opacity-80 border-none">
               {isLoadingLogin ? (
                 <span className="loading loading-spinner"></span>
               ) : (
-                "Login"
+                "Sign In"
               )}
             </button>
           </div>

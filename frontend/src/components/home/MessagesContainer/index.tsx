@@ -1,11 +1,15 @@
-import { IoChatbubbles } from "react-icons/io5";
+import { IoChatbubblesSharp } from "react-icons/io5";
 import { useAuth } from "../../../hooks/useAuth";
 import { useSocket } from "../../../hooks/useSocket";
 import useConversation from "../../../zustand/useConversation";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 
-const MessagesContainer = () => {
+interface MessagesContainerProps {
+  setIsOpen: (value: boolean) => void;
+}
+
+const MessagesContainer = ({ setIsOpen }: MessagesContainerProps) => {
   const { selectedConversation } = useConversation();
 
   const { onlineUsers } = useSocket();
@@ -21,11 +25,11 @@ const MessagesContainer = () => {
   return (
     <div className="md:min-w-[450px] bg-white w-full flex flex-col">
       {!selectedConversation ? (
-        <NoChatSelected />
+        <NoChatSelected setIsOpen={setIsOpen} />
       ) : (
         <>
           {" "}
-          <div className="flex bg-white gap-2 items-center border-b mb-5 last:mb-0 px-5 py-4">
+          <div className="flex bg-white gap-2 items-center border-b px-5 py-4">
             <div className="avatar">
               <div className="w-12">
                 <img src={selectedConversation.profilePic} alt="user avatar" />
@@ -53,15 +57,24 @@ const MessagesContainer = () => {
 
 export default MessagesContainer;
 
-const NoChatSelected = () => {
+interface NoChatSelectedProps {
+  setIsOpen: (value: boolean) => void;
+}
+
+const NoChatSelected = ({ setIsOpen }: NoChatSelectedProps) => {
   const { authUser } = useAuth();
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
-      <div className="px-4 text-center sm:text-lg md:text-xl text-black font-semibold flex flex-col items-center gap-2">
-        <p>Welcome {authUser?.fullName}!</p>
-        <p>Select a chat to start messaging</p>
-        <IoChatbubbles size={55} />
+    <div className="flex flex-col items-center justify-center w-full h-full">
+      <div className="px-4 text-center text-black flex flex-col items-center gap-1 mb-3">
+        <p className="text-2xl font-semibold">Welcome {authUser?.fullName}!</p>
+        <p className="text-sm">Select a chat to start messaging</p>
+      </div>
+      <div
+        onClick={() => setIsOpen(true)}
+        className="z-[999] sm:pointer-events-none hover:brightness-110 transition-all mr-3 rounded-full p-3 bg-[#615EF0] text-white cursor-pointer"
+      >
+        <IoChatbubblesSharp size={24} />
       </div>
     </div>
   );

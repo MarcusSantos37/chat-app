@@ -1,4 +1,4 @@
-import { BiLogOut } from "react-icons/bi";
+import { IoExit } from "react-icons/io5";
 import { useAuth } from "../../../hooks/useAuth";
 
 const LogoutButton = () => {
@@ -8,12 +8,13 @@ const LogoutButton = () => {
     <div className="mt-auto">
       <div
         onClick={logout}
-        className="text-black cursor-pointer hover:opacity-80"
+        className="text-white flex py-3 gap-2 items-center justify-center bg-red-500 cursor-pointer transition-opacity hover:opacity-80"
       >
+        <span className="text-sm font-medium">Logout</span>
         {isLoadingLogout ? (
           <span className="loading loading-spinner"></span>
         ) : (
-          <BiLogOut size={24} />
+          <IoExit size={24} />
         )}
       </div>
     </div>

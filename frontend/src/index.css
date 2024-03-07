@@ -12,16 +12,18 @@
 
 ::-webkit-scrollbar {
     cursor: pointer;
-    width: 8px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
     cursor: pointer;
     background: #555;
+	border-radius: 8px
+
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #121212;
+    background: #615EF0;
 }
 
 ::-webkit-scrollbar-thumb:hover {

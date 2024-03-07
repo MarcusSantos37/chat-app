@@ -17,12 +17,14 @@ const CustomInput = ({
 }: CustomInputProps) => {
   return (
     <div className="flex flex-col">
-      <label className="label p-2">
-        <span className="text-base label-text">{label}</span>
+      <label className="label">
+        <span className="text-sm font-semibold text-[#121212] label-text">
+          {label}
+        </span>
       </label>
       <input
         {...register(name)}
-        className="w-full input input-bordered h-10"
+        className="w-full bg-white input placeholder:text-[#6B6B6B] text-[#121212] text-sm input-bordered h-10"
         {...rest}
       />
       {errorMessage && (

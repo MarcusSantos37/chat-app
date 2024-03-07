@@ -9,5 +9,4 @@ export type SignupInputs = {
 export type LoginInputs = {
   username: string;
   password: string;
-  gender: string;
 };
