@@ -6,7 +6,7 @@ import { messageSchema } from "../../../schemas/conversations";
 import { Message } from "../../../types/conversations";
 
 const MessageInput = () => {
-  const { sendMessage } = useConversations();
+  const { loadingSendMessage, sendMessage } = useConversations();
 
   const { register, handleSubmit, setValue, watch } = useForm<Message>({
     resolver: yupResolver(messageSchema),
@@ -32,7 +32,11 @@ const MessageInput = () => {
           type="submit"
           className="absolute inset-y-0 end-0 text-[#615EF0] flex items-center pe-5"
         >
-          <BsSendFill />
+          {loadingSendMessage ? (
+            <span className="loading w-[18px] loading-spinner"></span>
+          ) : (
+            <BsSendFill size={18} />
+          )}
         </button>
       </div>
     </form>

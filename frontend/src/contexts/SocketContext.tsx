@@ -40,7 +40,7 @@ export const SocketContextProvider = ({
 
   useEffect(() => {
     if (authUser) {
-      const socket = io(process.env.FRONTEND_URL ?? "", {
+      const socket = io("https://chat-app-prod-lmy5.onrender.com", {
         query: {
           userId: authUser._id,
         },
